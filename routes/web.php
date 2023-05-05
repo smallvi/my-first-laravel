@@ -14,9 +14,8 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
 
 
 // Route::prefix('api')->group(function (){
@@ -28,9 +27,16 @@ use App\Http\Controllers\TodoController;
 //     })->name("index.test");
 // });
 
-Route::post('edit-todo', [TodoController::class, 'edit']);
-Route::post('delete-todo', [TodoController::class, 'destroy']);
+Route::get('/', [TodoController::class, 'index'])->middleware('throttle:60,1');
 
 Route::resource('todos',TodoController::class);
 
-// Route::get('todosedit', [TodoController::class, 'edit']);
+Route::post('edit-todo', [TodoController::class, 'edit']);
+Route::post('delete-todo', [TodoController::class, 'destroy']);
+
+
+
+
+// Route::fallback(function () {
+//     return "Invalid URI";
+// });

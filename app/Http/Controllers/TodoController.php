@@ -15,8 +15,8 @@ class TodoController extends Controller
      */
     public function index(Request $request)
     {
+        $title = 'Todo List - CRUD (Ajax) Test';
         // $todos = Todo::all();
-        $title = 'Todo List - CRUD test';
         // return view('todos.index', compact(['todos', 'title']));
 
         if ($request->ajax()) {
@@ -36,7 +36,7 @@ class TodoController extends Controller
      */
     // public function create()
     // {
-        
+
     //     $title = 'Create New Todo - CRUD test';
     //     return view('todos.create', compact(['title']));
     // }
@@ -55,7 +55,7 @@ class TodoController extends Controller
         // $todo->todo = $request->todo;
         // $todo->save();
         // return redirect()->route('todos.index')->with('success', 'Todo has been created successfully');
-        
+
         $validatedData = $request->validated();
 
         $todo   =   Todo::updateOrCreate(
@@ -68,12 +68,12 @@ class TodoController extends Controller
             ]
         );
 
-        if($request->id){
+        if ($request->id) {
             Log::info("ID: {$request->id} updated successfully");
         } else {
             Log::info("ID: {$todo->id} created successfully");
         }
-        
+
 
         return Response()->json($todo);
     }

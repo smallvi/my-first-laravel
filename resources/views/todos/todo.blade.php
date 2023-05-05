@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <title>CRUD test - Yeo</title>
+    <title>CRUD (Ajax) test - Yeo</title>
 </head>
 
 <body>
@@ -57,7 +57,6 @@
                 </div>
                 <div class="modal-body">
                     <form action="javascript:void(0)" id="todoForm" name="todoForm" class="form-horizontal" method="POST" enctype="multipart/form-data">
-                        @csrf
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
 
